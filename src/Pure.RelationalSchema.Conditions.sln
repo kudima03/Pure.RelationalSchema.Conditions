@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11123.170 d18.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{092BEDC7-3281-425D-92D4-C05CCC450F55}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pure.RelationalSchema.Conditions", "Pure.RelationalSchema.Conditions\Pure.RelationalSchema.Conditions.csproj", "{27720E8B-596F-42FF-BF50-59DF5D077B1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pure.RelationalSchema.Conditions.Tests", "Tests\Pure.RelationalSchema.Conditions.Tests\Pure.RelationalSchema.Conditions.Tests.csproj", "{90EEE72B-9310-4EFD-804B-9831D1AD2B48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AB94F816-0740-429F-953C-0CDDDEA70059}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27720E8B-596F-42FF-BF50-59DF5D077B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27720E8B-596F-42FF-BF50-59DF5D077B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27720E8B-596F-42FF-BF50-59DF5D077B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27720E8B-596F-42FF-BF50-59DF5D077B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90EEE72B-9310-4EFD-804B-9831D1AD2B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90EEE72B-9310-4EFD-804B-9831D1AD2B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90EEE72B-9310-4EFD-804B-9831D1AD2B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90EEE72B-9310-4EFD-804B-9831D1AD2B48}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{90EEE72B-9310-4EFD-804B-9831D1AD2B48} = {AB94F816-0740-429F-953C-0CDDDEA70059}
+	EndGlobalSection
+EndGlobal
