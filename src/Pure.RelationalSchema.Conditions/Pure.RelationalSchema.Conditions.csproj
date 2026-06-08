@@ -4,6 +4,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsAotCompatible>true</IsAotCompatible>
+    <!--<EnablePackageValidation>true</EnablePackageValidation>-->
+    <!--<PackageValidationBaselineVersion>x.x.x</PackageValidationBaselineVersion>-->
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>Pure.RelationalSchema.Conditions</PackageId>
