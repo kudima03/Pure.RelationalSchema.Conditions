@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <IsAotCompatible>true</IsAotCompatible>
     <LangVersion>latest</LangVersion>
+    <!--<EnablePackageValidation>true</EnablePackageValidation>-->
+    <!--<PackageValidationBaselineVersion>x.x.x</PackageValidationBaselineVersion>-->
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>Pure.RelationalSchema.Conditions</PackageId>
