@@ -28,14 +28,12 @@ jobs:
       run: dotnet build --no-restore -warnaserror
     - name: Code style check by dotnet format
       run: dotnet format --verify-no-changes
-    - name: Install csharpier
-      run: dotnet tool install -g csharpier
-    - name: Code style check by csharpier
-      run: csharpier check .
-    - name: Test
-      run: dotnet test --no-build --verbosity normal --logger trx --collect:"XPlat Code Coverage"
     - name: Restore .NET tools
       run: dotnet tool restore
+    - name: Code style check by csharpier
+      run: dotnet csharpier check .
+    - name: Test
+      run: dotnet test --no-build --verbosity normal --logger trx --collect:"XPlat Code Coverage"
     - name: Run mutation test
       run: dotnet stryker --mutation-level Complete --break-at ${{ env.MUTATION_THRESHOLD }}
     - name: Combine Coverage Reports
