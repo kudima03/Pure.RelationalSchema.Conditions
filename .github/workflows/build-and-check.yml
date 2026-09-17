@@ -34,6 +34,10 @@ jobs:
       run: csharpier check .
     - name: Test
       run: dotnet test --no-build --verbosity normal --logger trx --collect:"XPlat Code Coverage"
+    - name: Restore .NET tools
+      run: dotnet tool restore
+    - name: Run mutation test
+      run: dotnet stryker --mutation-level Complete --break-at ${{ env.MUTATION_THRESHOLD }}
     - name: Combine Coverage Reports
       uses: danielpalme/ReportGenerator-GitHub-Action@5.5.11
       with:
@@ -62,7 +66,3 @@ jobs:
       with:
         recreate: true
         path: code-coverage-results.md
-    - name: Restore .NET tools
-      run: dotnet tool restore
-    - name: Run mutation test
-      run: dotnet stryker --mutation-level Complete --break-at ${{ env.MUTATION_THRESHOLD }}
