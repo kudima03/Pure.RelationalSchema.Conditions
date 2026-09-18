@@ -8,6 +8,11 @@
     <!--<EnablePackageValidation>true</EnablePackageValidation>-->
     <!--<PackageValidationBaselineVersion>x.x.x</PackageValidationBaselineVersion>-->
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Pure.Linq.Conditions" Version="0.1.0-preview.0.3.0" />
+    <PackageReference Include="Pure.Primitives.String.Operations" Version="1.5.1" />
+    <PackageReference Include="Pure.RelationalSchema.Abstractions" Version="1.2.0" />
+  </ItemGroup>
   <PropertyGroup>
     <PackageId>Pure.RelationalSchema.Conditions</PackageId>
     <RootNamespace>Pure.RelationalSchema.Conditions</RootNamespace>
