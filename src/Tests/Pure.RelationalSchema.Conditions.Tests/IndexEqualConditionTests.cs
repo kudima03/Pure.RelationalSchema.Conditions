@@ -3,22 +3,21 @@ using Pure.Primitives.Bool;
 using Pure.RelationalSchema.Abstractions.Column;
 using Pure.RelationalSchema.Abstractions.Index;
 using Pure.RelationalSchema.ColumnType;
+using ColumnRecord = Pure.RelationalSchema.Column.Column;
+using IndexRecord = Pure.RelationalSchema.Index.Index;
 using String = Pure.Primitives.String.String;
 
 namespace Pure.RelationalSchema.Conditions.Tests;
-
-using Column = Column.Column;
-using Index = Index.Index;
 
 public sealed record IndexEqualConditionTests
 {
     [Fact]
     public void ReturnsTrueWhenIndexesAreStructurallyEqual()
     {
-        IColumn column = new Column(new String("Id"), new IntColumnType());
+        IColumn column = new ColumnRecord(new String("Id"), new IntColumnType());
 
-        IIndex first = new Index(new True(), [column]);
-        IIndex second = new Index(new True(), [column]);
+        IIndex first = new IndexRecord(new True(), [column]);
+        IIndex second = new IndexRecord(new True(), [column]);
 
         IBool condition = new IndexEqualCondition(first, second);
 
@@ -28,10 +27,10 @@ public sealed record IndexEqualConditionTests
     [Fact]
     public void ReturnsFalseWhenIndexesDiffer()
     {
-        IColumn column = new Column(new String("Id"), new IntColumnType());
+        IColumn column = new ColumnRecord(new String("Id"), new IntColumnType());
 
-        IIndex first = new Index(new True(), [column]);
-        IIndex second = new Index(new False(), [column]);
+        IIndex first = new IndexRecord(new True(), [column]);
+        IIndex second = new IndexRecord(new False(), [column]);
 
         IBool condition = new IndexEqualCondition(first, second);
 
@@ -41,9 +40,9 @@ public sealed record IndexEqualConditionTests
     [Fact]
     public void ReturnsTrueOnSingleIndex()
     {
-        IColumn column = new Column(new String("Id"), new IntColumnType());
+        IColumn column = new ColumnRecord(new String("Id"), new IntColumnType());
 
-        IIndex index = new Index(new True(), [column]);
+        IIndex index = new IndexRecord(new True(), [column]);
 
         IBool condition = new IndexEqualCondition(index);
 

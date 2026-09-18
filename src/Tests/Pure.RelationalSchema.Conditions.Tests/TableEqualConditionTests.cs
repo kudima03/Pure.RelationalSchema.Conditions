@@ -1,27 +1,26 @@
 using Pure.Primitives.Abstractions.Bool;
 using Pure.RelationalSchema.Abstractions.Table;
 using Pure.RelationalSchema.ColumnType;
+using ColumnRecord = Pure.RelationalSchema.Column.Column;
 using String = Pure.Primitives.String.String;
+using TableRecord = Pure.RelationalSchema.Table.Table;
 
 namespace Pure.RelationalSchema.Conditions.Tests;
-
-using Column = Column.Column;
-using Table = Table.Table;
 
 public sealed record TableEqualConditionTests
 {
     [Fact]
     public void ReturnsTrueWhenTablesAreStructurallyEqual()
     {
-        ITable first = new Table(
+        ITable first = new TableRecord(
             new String("Users"),
-            [new Column(new String("Id"), new IntColumnType())],
+            [new ColumnRecord(new String("Id"), new IntColumnType())],
             []
         );
 
-        ITable second = new Table(
+        ITable second = new TableRecord(
             new String("Users"),
-            [new Column(new String("Id"), new IntColumnType())],
+            [new ColumnRecord(new String("Id"), new IntColumnType())],
             []
         );
 
@@ -33,15 +32,15 @@ public sealed record TableEqualConditionTests
     [Fact]
     public void ReturnsFalseWhenTablesDiffer()
     {
-        ITable first = new Table(
+        ITable first = new TableRecord(
             new String("Users"),
-            [new Column(new String("Id"), new IntColumnType())],
+            [new ColumnRecord(new String("Id"), new IntColumnType())],
             []
         );
 
-        ITable second = new Table(
+        ITable second = new TableRecord(
             new String("Orders"),
-            [new Column(new String("Id"), new IntColumnType())],
+            [new ColumnRecord(new String("Id"), new IntColumnType())],
             []
         );
 
@@ -53,7 +52,7 @@ public sealed record TableEqualConditionTests
     [Fact]
     public void ReturnsTrueOnSingleTable()
     {
-        ITable table = new Table(new String("Users"), [], []);
+        ITable table = new TableRecord(new String("Users"), [], []);
 
         IBool condition = new TableEqualCondition(table);
 

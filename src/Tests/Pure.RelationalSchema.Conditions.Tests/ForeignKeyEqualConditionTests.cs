@@ -2,33 +2,42 @@ using Pure.Primitives.Abstractions.Bool;
 using Pure.RelationalSchema.Abstractions.ForeignKey;
 using Pure.RelationalSchema.Abstractions.Table;
 using Pure.RelationalSchema.ColumnType;
+using ColumnRecord = Pure.RelationalSchema.Column.Column;
+using ForeignKeyRecord = Pure.RelationalSchema.ForeignKey.ForeignKey;
 using String = Pure.Primitives.String.String;
+using TableRecord = Pure.RelationalSchema.Table.Table;
 
 namespace Pure.RelationalSchema.Conditions.Tests;
-
-using Column = Column.Column;
-using ForeignKey = ForeignKey.ForeignKey;
-using Table = Table.Table;
 
 public sealed record ForeignKeyEqualConditionTests
 {
     [Fact]
     public void ReturnsTrueWhenForeignKeysAreStructurallyEqual()
     {
-        ITable orders = new Table(
+        ITable orders = new TableRecord(
             new String("Orders"),
-            [new Column(new String("UserId"), new IntColumnType())],
+            [new ColumnRecord(new String("UserId"), new IntColumnType())],
             []
         );
 
-        ITable users = new Table(
+        ITable users = new TableRecord(
             new String("Users"),
-            [new Column(new String("Id"), new IntColumnType())],
+            [new ColumnRecord(new String("Id"), new IntColumnType())],
             []
         );
 
-        IForeignKey first = new ForeignKey(orders, orders.Columns, users, users.Columns);
-        IForeignKey second = new ForeignKey(orders, orders.Columns, users, users.Columns);
+        IForeignKey first = new ForeignKeyRecord(
+            orders,
+            orders.Columns,
+            users,
+            users.Columns
+        );
+        IForeignKey second = new ForeignKeyRecord(
+            orders,
+            orders.Columns,
+            users,
+            users.Columns
+        );
 
         IBool condition = new ForeignKeyEqualCondition(first, second);
 
@@ -38,26 +47,31 @@ public sealed record ForeignKeyEqualConditionTests
     [Fact]
     public void ReturnsFalseWhenForeignKeysDiffer()
     {
-        ITable orders = new Table(
+        ITable orders = new TableRecord(
             new String("Orders"),
-            [new Column(new String("UserId"), new IntColumnType())],
+            [new ColumnRecord(new String("UserId"), new IntColumnType())],
             []
         );
 
-        ITable payments = new Table(
+        ITable payments = new TableRecord(
             new String("Payments"),
-            [new Column(new String("UserId"), new IntColumnType())],
+            [new ColumnRecord(new String("UserId"), new IntColumnType())],
             []
         );
 
-        ITable users = new Table(
+        ITable users = new TableRecord(
             new String("Users"),
-            [new Column(new String("Id"), new IntColumnType())],
+            [new ColumnRecord(new String("Id"), new IntColumnType())],
             []
         );
 
-        IForeignKey first = new ForeignKey(orders, orders.Columns, users, users.Columns);
-        IForeignKey second = new ForeignKey(
+        IForeignKey first = new ForeignKeyRecord(
+            orders,
+            orders.Columns,
+            users,
+            users.Columns
+        );
+        IForeignKey second = new ForeignKeyRecord(
             payments,
             payments.Columns,
             users,
@@ -72,19 +86,19 @@ public sealed record ForeignKeyEqualConditionTests
     [Fact]
     public void ReturnsTrueOnSingleForeignKey()
     {
-        ITable orders = new Table(
+        ITable orders = new TableRecord(
             new String("Orders"),
-            [new Column(new String("UserId"), new IntColumnType())],
+            [new ColumnRecord(new String("UserId"), new IntColumnType())],
             []
         );
 
-        ITable users = new Table(
+        ITable users = new TableRecord(
             new String("Users"),
-            [new Column(new String("Id"), new IntColumnType())],
+            [new ColumnRecord(new String("Id"), new IntColumnType())],
             []
         );
 
-        IForeignKey foreignKey = new ForeignKey(
+        IForeignKey foreignKey = new ForeignKeyRecord(
             orders,
             orders.Columns,
             users,
