@@ -5,8 +5,8 @@
     <Nullable>enable</Nullable>
     <IsAotCompatible>true</IsAotCompatible>
     <LangVersion>latest</LangVersion>
-    <!--<EnablePackageValidation>true</EnablePackageValidation>-->
-    <!--<PackageValidationBaselineVersion>x.x.x</PackageValidationBaselineVersion>-->
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <PackageValidationBaselineVersion>0.1.0-preview.0.1.0</PackageValidationBaselineVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Pure.Linq.Conditions" Version="0.1.0-preview.0.3.0" />
